@@ -12,13 +12,13 @@
   },
   "dependencies": {
     {{#axios}}
-		"@nuxtjs/axios": "^5.3.1",
+	"@nuxtjs/axios": "^5.3.1",
     {{/axios}}
     {{#router}}
-		"@nuxtjs/router": "^1.0.1",
+	"@nuxtjs/router": "^1.0.1",
     {{/router}}
     {{#sitemap}}
-		"@nuxtjs/sitemap": "^0.1.1",
+	"@nuxtjs/sitemap": "^0.1.1",
     {{/sitemap}}
     "nuxt": "^1.0.0",
     "vuetify": "^1.0.17"

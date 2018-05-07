@@ -72,7 +72,8 @@ module.exports = {
 		'src/views/**/*': 'router',
 		'src/pages/**/*': '!router',
 		'src/**/*.pug': 'pug',
-		'src/**/*.html': '!pug',
+		'src/views/**/*.html': '!pug && router',
+		'src/pages/**/*.html': '!pug && !router',
 		'src/**/*.scss': 'sass',
 		'src/**/*.css': '!sass'
 	},
