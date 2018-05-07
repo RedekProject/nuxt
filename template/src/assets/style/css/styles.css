@@ -1,0 +1,32 @@
+/* GENERAL
+// ---------------------------------------------------------------------------- */
+	body {
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+/* SCROLLBAR
+// ---------------------------------------------------------------------------- */
+	::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+	}
+	::-webkit-scrollbar-track {
+		background-color: white;
+		border-left: #1976D2;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: rgb(99, 161, 223);
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background-color: rgb(99, 161, 223);
+	}
+
+/* TRANSITIONS
+// ---------------------------------------------------------------------------- */
+	.fade-enter-active, .fade-leave-active {
+		transition: opacity .5s;
+	}
+	.fade-enter, .fade-leave-to {
+		opacity: 0;
+	}

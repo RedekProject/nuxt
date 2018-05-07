@@ -1,0 +1,23 @@
+$FontsPath: '/assets/fonts';
+$Fonts: (
+	('Nunito', cursive, (
+		'Black', 'Bold', 'ExtraBold', 'ExtraLight', 'Light', 'Regular', 'SemiBold'
+	)),
+	('Roboto', sans-serif, (
+		'Black', 'Bold', 'Light', 'Medium', 'Regular', 'Thin'
+	))
+);
+
+// AUTO ADD FONTS
+// ----------------------------------------------------------------------------
+	@each $label, $type, $map in $Fonts {
+		@each $font in $map {
+			@font-face {
+				font-family: '#{$label}-#{$font}';
+				src: url('#{$FontsPath}/#{$label}/#{$label}-#{$font}.ttf');
+			}
+			.#{$label}-#{$font} {
+				font-family: '#{$label}-#{$font}', $type !important;
+			}
+		}
+	}

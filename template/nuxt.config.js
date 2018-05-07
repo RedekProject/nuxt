@@ -1,73 +1,49 @@
-{{#alacarte}}
-const nodeExternals = require('webpack-node-externals')
-const resolve = (dir) => require('path').join(__dirname, dir)
-{{/alacarte}}
+// IMPORTER
+// ----------------------------------------------------------------------------
+	const GENERAL = require('./config/general')
+	const HEAD = require('./config/head')
+	const MODULES = require('./config/modules')
+	const PLUGINS = require('./config/plugins')
+	const ROUTER = require('./config/router')
+	const BUILDER = require('./config/build')
 
-module.exports = {
-  /*
-  ** Headers of the page
-  */
-  head: {
-    title: '{{ name }}',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '{{ description }}' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
-    ]
-  },
-  plugins: ['~/plugins/vuetify.js'],
-  css: [
-    '~/assets/style/app.styl'
-  ],
-  /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
-  /*
-  ** Build configuration
-  */
-  build: {
-    {{#alacarte}}
-    babel: {
-      plugins: [
-        ["transform-imports", {
-          "vuetify": {
-            "transform": "vuetify/es5/components/${member}",
-            "preventFullImport": true
-          }
-        }]
-      ]
-    },
-    {{/alacarte}}
-    vendor: [
-      '~/plugins/vuetify.js'
-    ],
-    extractCSS: true,
-    /*
-    ** Run ESLint on save
-    */
-    extend (config, ctx) {
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-      {{#alacarte}}
-      if (ctx.isServer) {
-        config.externals = [
-          nodeExternals({
-            whitelist: [/^vuetify/]
-          })
-        ]
-      }
-      {{/alacarte}}
-    }
-  }
-}
+// NUXT CONFIG
+// ----------------------------------------------------------------------------
+	module.exports = {
+		{{#spa}}
+		// => SPA
+			mode: 'spa',
+			{{#router}}
+			generate: {
+				routes: [
+					'/',
+				],
+			},
+			{{/router}}
+		{{/spa}}
+		// => Headers of the page
+			// => SEO
+				head: HEAD.SEO,
+			// => CSS
+				css: HEAD.CSS,
+		// => Use lru-cache to allow cached components for better render performances
+			cache: GENERAL.CACHE,
+			render: GENERAL.RENDER,
+		// => Customize the progress bar color
+			loading: GENERAL.LOADING.BASE,
+			loadingIndicator: GENERAL.LOADING.INDICATOR,
+		// => Environment
+			env: GENERAL.ENV,
+		// => Module
+			modules: MODULES.IMPORT,
+			sitemap: MODULES.SITEMAP,
+			axios: MODULES.AXIOS,
+		// => Plugins
+			plugins: PLUGINS.IMPORT,
+		// => Router
+			router: ROUTER,
+		// => Src directory
+			srcDir: 'src/',
+		// => Build configuration
+			build: BUILDER,
+	}

@@ -24,27 +24,27 @@ Vue.use(Vuetify, {
     VIcon,
     VGrid,
     VToolbar
-  }{{#theme}},
+  },
   theme: {
-    primary: '#9c27b0',
+    primary: '#1976D2',
     accent: '#ce93d8',
     secondary: '#424242',
-    info: '#0D47A1',
-    warning: '#ffb300',
-    error: '#B71C1C',
-    success: '#2E7D32'
-  }{{/theme}}
+    info: '#27B1DB',
+    warning: '#F5F542',
+    error: '#F14B4B',
+    success: '#63C017'
+  }
 })
 {{else}}
 import Vuetify from 'vuetify'
 
-Vue.use(Vuetify{{#theme}}, { theme: {
-  primary: '#9c27b0',
+Vue.use(Vuetify, { theme: {
+  primary: '#1976D2',
   accent: '#ce93d8',
   secondary: '#424242',
-  info: '#0D47A1',
-  warning: '#ffb300',
-  error: '#B71C1C',
-  success: '#2E7D32'
-}}{{/theme}})
+  info: '#27B1DB',
+  warning: '#F5F542',
+  error: '#F14B4B',
+  success: '#63C017'
+}})
 {{/alacarte}}

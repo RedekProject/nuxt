@@ -11,14 +11,28 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    {{#axios}}
+		"@nuxtjs/axios": "^5.3.1",
+    {{/axios}}
+    {{#router}}
+		"@nuxtjs/router": "^1.0.1",
+    {{/router}}
+    {{#sitemap}}
+		"@nuxtjs/sitemap": "^0.1.1",
+    {{/sitemap}}
     "nuxt": "^1.0.0",
-    "vuetify": "^1.0.0"
+    "vuetify": "^1.0.17"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     {{#alacarte}}
     "babel-plugin-transform-imports": "^1.4.1",
     {{/alacarte}}
+    {{#babelpolyfill}}
+    "babel-polyfill": "^6.26.0",
+    "eventsource-polyfill": "^0.9.6",
+    {{/babelpolyfill}}
+    "cross-env": "^5.1.4",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
@@ -27,6 +41,14 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "eslint-restricted-globals": "^0.1.1",
+    {{#sass}}
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    {{/sass}}
+    {{#pug}}
+    "pug": "^2.0.3",
+    {{/pug}}
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1"
   }

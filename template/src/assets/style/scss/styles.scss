@@ -1,0 +1,35 @@
+@import 'variables';
+@import 'fonts';
+
+// GENERAL
+// ----------------------------------------------------------------------------
+	body {
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+// SCROLLBAR
+// ----------------------------------------------------------------------------
+	::-webkit-scrollbar {
+		width: $scrollbar-width;
+		height: $scrollbar-width;
+	}
+	::-webkit-scrollbar-track {
+		background-color: $scrollbar-track-bg-color;
+		border-left: $primary;
+	}
+	::-webkit-scrollbar-thumb {
+		&:hover {
+			background-color: lighten($primary, 25%);
+		}
+		background-color: lighten($primary, 10%);
+	}
+
+// TRANSITIONS
+// ----------------------------------------------------------------------------
+	.fade-enter-active, .fade-leave-active {
+		transition: opacity .5s;
+	}
+	.fade-enter, .fade-leave-to {
+		opacity: 0;
+	}
