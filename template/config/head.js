@@ -26,7 +26,7 @@
 			{
 				hid: 'author',
 				name: 'author',
-				content: 'Ludwig Informatique',
+				content: '{{ author }}',
 			},
 			// => OpenGraph
 			{
